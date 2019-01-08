@@ -27,9 +27,10 @@ class Main extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args):bool{
         if($cmd->getName() == "size"){
             if(!($sender instanceof Player)){
-                $sender->sendMessage("Please use this command in game.", false);
+                if(!$sender->hasPermission("sizeui.command")){
+                $sender->sendMessage("§cYou do not have permission to use this command!");
                 return true;
-            }
+            } else {
             $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
             $form = $api->createSimpleForm(function (Player $sender, $data){
                 $result = $data;
