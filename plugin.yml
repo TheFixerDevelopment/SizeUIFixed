@@ -1,9 +1,13 @@
 name: SizeUIFixed
 api: [3.5.1, 3.5.2, 3.5.3]
 main: SizeUI\Main
-author: Misael38
+author: ZectorPE
 version: 2.0.0
 commands:
   size:
     usage: /size
     description: Opens The SizeUI Menu
+permissions:
+  sizeui.command:
+    default: false
+    description: "Allow use of the Size UI command!
