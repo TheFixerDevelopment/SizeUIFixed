@@ -27,7 +27,7 @@ class Main extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args):bool{
         if($cmd->getName() == "size"){
             if(!($sender instanceof Player)){
-                $sender->sendMessage("SizeUI", false);
+                $sender->sendMessage("Please use this command in game.", false);
                 return true;
             }
             $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
@@ -37,27 +37,27 @@ class Main extends PluginBase implements Listener{
                 }
                 switch ($result) {
                     case 0:
-                        $sender->sendMessage("SizeUI");
-                        $player->$setScale("1");
+                        $sender->sendMessage("§bSize updated to §3Mini (Scale 1) §bsuccessfully.");
+                        $sender->$setScale("1");
                         break;
                     case 1:
-                        $sender->sendMessage("SizeUI");
-                        $player->$setScale("2");
+                        $sender->sendMessage("§bSize updated to §3Normal (Scale 2) §bsuccessfully!");
+                        $sender->$setScale("2");
                         break;
                     case 2:
-                        $sender->sendMessage("SizeUI");
-                        $player->$setScale("3");
+                        $sender->sendMessage("§bSize updated to §3Big (Scale 3) §bsuccessfully!");
+                        $sender->$setScale("3");
                         break;
                     case 3:
-                        $sender->sendMessage("SizeUI");
-                        $player->$setScale("4");
+                        $sender->sendMessage("§bScale updated to §3VeryBig (Scale 4) §bsuccessfully!");
+                        $sender->$setScale("4");
                         break;
                     case 4:
-                        $sender->sendMessage("SizeUI");
+                        $sender->sendMessage("§cYou have exited out of the scale UI successfully!");
                         break;
                 }
             });
-            $form->setTitle("§lSizeUI Menu");
+            $form->setTitle("§lScaleUI Menu");
             $form->setContent("§lchoose your favorite size!");
             $form->addButton("§lMini");
             $form->addButton("§lNormal");
